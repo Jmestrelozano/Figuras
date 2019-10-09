@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="css/FIGURASGEO.css">
+    <title>Document</title>
+</head>
+<body>
+
+<head>
+    <div><a href="Figuras.html">
+    <h1>FIGURAS GEOMETRICAS</h1>
+</a>
+</div>
+    <div class="enlances-geometricos">
+        <a href="Cilindro.html">Cilindro</a>
+        <a href="Circulo.html">Circulo</a>
+        <a href="Cono.html">Cono</a>
+        <a href="Dodecahedro.html">Dodecahedro</a>
+    
+    </div>
+
+</head>
+    <script src="js/three.js"></script>
+    <script>
+
+// creacion de la escena
+    
+    var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+    
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			
+var material = new THREE.MeshBasicMaterial( { color: 0xffffff , wireframe: false, side:THREE.FrontSide } );
+
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 3;
+
+var update = function(){
+    cube.rotation.x +=0.01;
+    cube.rotation.y +=0.001;
+    
+};
+
+var render = function(){
+    renderer.render( scene, camera);
+};
+
+var GameLoop = function(){
+requestAnimationFrame(GameLoop);
+update();
+render();
+};
+
+GameLoop();
+
+
+
+
+
+// function crear_cubo(){
+// geometriacubo=new THREE.CubeGeometry(10,10,10);
+// var material = new THREE.Mesh(geometriaCubo,material); 
+// Escenario.add(material);
+// }
+
+// // funcion animacion
+
+// // function animate() {
+// // 	requestAnimationFrame( animate );
+// //     renderer.render( scene, camera );
+
+// // // animacion del cubo
+
+// //     crear_cubo.rotation.x += 0.01;
+// // crear_cubo.rotation.y += 0.01;
+// // 	renderer.render( scene, camera );
+// // }
+// // animate();
+
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/FIGURASGEO.css">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+<head>
+    <div><a href="Figuras.html">
+    <h1>FIGURAS GEOMETRICAS</h1>
+</a>
+</div>
+    <div class="enlances-geometricos">
+        <a href="Cilindro.html">Cilindro</a>
+        <a href="Circulo.html">Circulo</a>
+        <a href="Cono.html">Cono</a>
+        <a href="Dodecahedro.html">Dodecahedro</a>
+     
+    </div>
+
+</head>
+    <script src="js/three.js"></script>
+    <script>
+
+// creacion de la escena
+    
+    var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+    
+var geometria = new THREE.CylinderGeometry( .5,.5,2,6);
+var material = new THREE.MeshBasicMaterial( {color: 0xffff00, wireframe: true} );
+var cylinder = new THREE.Mesh( geometria, material );
+scene.add( cylinder );
+
+camera.position.z = 3;
+
+var update = function(){
+    cylinder.rotation.x +=0.01;
+    cylinder.rotation.y +=0.001;
+    cylinder.rotation.z +=0.0001;
+    
+};
+
+var render = function(){
+    renderer.render( scene, camera);
+};
+
+var GameLoop = function(){
+requestAnimationFrame(GameLoop);
+update();
+render();
+};
+
+GameLoop();
+    </script>
+    
+    
+</body>
+</html>

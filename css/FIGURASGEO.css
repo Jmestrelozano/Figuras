@@ -1,0 +1,27 @@
+body{
+    margin:0;
+    
+}
+canvas{
+   
+}
+h1{
+text-align: center;
+
+
+}
+.enlances-geometricos{
+padding-bottom: 2rem;
+padding-top: 2rem;
+background-image: url("https://concepto.de/wp-content/uploads/2018/09/figuras-geometricas-e1537799349388.jpg");
+
+
+}
+.enlances-geometricos a{
+    text-decoration: none;
+    margin: 7rem;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+  
+}
